@@ -8,8 +8,6 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "do", style: .plain, target: self, action: #selector(doSome))
         
         navigationController?.navigationBar.isOpaque = true
@@ -55,7 +53,7 @@ class ViewController: UITableViewController {
 
         let label = cell.contentView.viewWithTag(13) as? UILabel
         label?.text = "\(label?.text ?? "")1"
-        print("willDisplay \(label?.text)")
+        print("willDisplay \(label?.text ?? "")")
     }
     
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -70,7 +68,7 @@ class ViewController: UITableViewController {
             text.remove(at: text.index(text.endIndex, offsetBy: -1))
             label?.text = text
         }
-        print("endDisplay \(label?.text)")
+        print("endDisplay \(label?.text ?? "")")
     }
 
 }
